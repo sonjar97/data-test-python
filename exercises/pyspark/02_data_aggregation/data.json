@@ -1,0 +1,22 @@
+[
+  {
+    "user_id": "123",
+    "event_date": "2022-01-01",
+    "event_count": 10
+  },
+  {
+    "user_id": "123",
+    "event_date": "2022-01-02",
+    "event_count": 5
+  },
+  {
+    "user_id": "456",
+    "event_date": "2022-01-01",
+    "event_count": 8
+  },
+  {
+    "user_id": "456",
+    "event_date": "2022-01-02",
+    "event_count": 12
+  }
+]
