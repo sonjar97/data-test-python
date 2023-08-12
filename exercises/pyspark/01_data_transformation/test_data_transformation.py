@@ -14,11 +14,11 @@ def test_data_transformation(spark_session):
     assert spark_session is not None
 
 data = [
-    ('', "2023-01-01 12:00:00", "click", 10),
-    (2, "2023-01-01 12:00:15", "view", 0),
-    (1, "2023-01-01 12:00:30", "click", 'n/a'),
-    (3, "2023-01-01 12:01:00", "click", 5),
-    (-1, "2023-01-01 12:01:10", "view", 25)
+    ('', "2023-01-01 12:00:00", "click", 10), # invalid user_id
+    (2, "2023-01-01 12:00:15", "view", 0), # invalid duration
+    (1, "2023-01-01 12:00:30", "click", 'n/a'), # invalid duration
+    (3, "2023-01-01 12:01:00", "click", 5), # valid
+    (-1, "2023-01-01 12:01:10", "view", 25) # invalid user_id
 ]
 
 columns = ["user_id", "timestamp", "event_type", "duration"]
