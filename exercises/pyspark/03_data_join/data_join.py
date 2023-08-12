@@ -9,6 +9,11 @@ Your task is to extract meaningful information from these data sets to answer th
 The output of your work should be a JSON file, output.json.
 """
 
+'''
+Data loading:
+- for this exercise, I will assume data type consistency and demonstrate the use of schemas
+'''
+
 
 from pyspark.sql import SparkSession
 from pyspark.sql.types import StructType, StructField, IntegerType, FloatType, StringType
