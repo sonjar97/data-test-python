@@ -4,7 +4,7 @@ from data_aggregation import AggregateData
 def test_data_aggregation(spark_session):
     assert spark_session is not None
 
-file_path = '/FileStore/tables/data.json'
+file_path = 'exercises/pyspark/02_data_aggregation/data.json'
 
 data = [
     '{"user_id": "1", "event_date": "2023-08-01", "event_count": 10}',
