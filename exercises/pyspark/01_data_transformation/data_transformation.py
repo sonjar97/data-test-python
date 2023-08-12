@@ -20,6 +20,8 @@ Data loading:
 
 Data cleaning:
 - for this exercise I have assumed that the columns do not necessarily contain only one data type
+- duration is floored
+    - 4.5 --> 4
 '''
 
 
