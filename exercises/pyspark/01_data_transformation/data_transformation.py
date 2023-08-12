@@ -12,6 +12,7 @@ The challenge here is to devise the most efficient and accurate solution using P
 """
 
 
+from pyspark.sql import SparkSession
 from pyspark.sql.functions import col, avg
 from pyspark.sql.types import IntegerType
 
