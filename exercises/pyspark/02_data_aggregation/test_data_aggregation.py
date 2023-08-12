@@ -11,7 +11,7 @@
 from data_aggregation import AggregateData
 
 
-def test_data_aggregation(spark_session):
+def test_spark_session(spark_session):
     assert spark_session is not None
 
 file_path = 'exercises/pyspark/02_data_aggregation/data.json'
