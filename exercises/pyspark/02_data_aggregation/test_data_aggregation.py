@@ -1,3 +1,13 @@
+'''
+- I am testing both the json file and the manually entered data
+- I have chosen an incremental testing approach
+    - test load
+    - test load, cleaning
+    - test load, cleaning, total events per day
+    - test load, cleaning, total events per day, overall solution
+'''
+
+
 from data_aggregation import AggregateData
 
 
@@ -7,10 +17,10 @@ def test_data_aggregation(spark_session):
 file_path = 'exercises/pyspark/02_data_aggregation/data.json'
 
 data = [
-    '{"user_id": "1", "event_date": "2023-08-01", "event_count": 10}',
-    '{"user_id": "2", "event_date": "2023-13-02", "event_count": 20}',
-    '{"user_id": "3", "event_date": "2023-08-03", "event_count": 2.9}',
-    '{"user_id": "4", "event_date": "2023-08-01", "event_count": 4.0}'
+    '{"user_id": "1", "event_date": "2023-08-01", "event_count": 10}', # valid
+    '{"user_id": "2", "event_date": "2023-13-02", "event_count": 20}', # invalid event_date
+    '{"user_id": "3", "event_date": "2023-08-03", "event_count": 2.9}', # invalid event_count
+    '{"user_id": "4", "event_date": "2023-08-01", "event_count": 4.0}' # valid
 ]
 
 columns = ['user_id', 'event_date', 'event_count']
