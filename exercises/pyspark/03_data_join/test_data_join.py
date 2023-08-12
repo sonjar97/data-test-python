@@ -10,7 +10,7 @@
 from data_join import JoinData
 
 
-def test_data_join(spark_session):
+def test_spark_session(spark_session):
     assert spark_session is not None
 
 file_path_users = 'exercises/pyspark/03_data_join/users.csv'
