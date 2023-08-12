@@ -10,6 +10,20 @@ Your report should include the following information:
 The output should be sorted in descending order based on the total number of events, and the results should be saved in a CSV file named output.csv.
 """
 
+'''
+Data loading:
+- file_path_or_data: path to file or manually entered data
+- by allowing the user to manually enter data, the user can more easily test different scenarios
+- the user_id field is not required to solve this exercise, no need to load it into the dataframe
+    - could potentially check for valid user_id
+
+Data cleaning:
+- for this exercise I have assumed that the columns do not necessarily contain only one data type
+- also, event_counts that contain non-zero decimal places are filtered out
+    - 4.0 --> not filtered
+    - 4.1 --> filtered
+'''
+
 
 from pyspark.sql import SparkSession
 from pyspark.sql.types import IntegerType, DateType
