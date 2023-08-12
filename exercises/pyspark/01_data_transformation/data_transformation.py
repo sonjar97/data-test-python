@@ -11,6 +11,17 @@ Finally, your analysis should be presented in the form of a Parquet file named o
 The challenge here is to devise the most efficient and accurate solution using PySpark to read, process, and write the data. Please also keep in mind the potential size and scale of the data while designing your solution.
 """
 
+'''
+Data loading:
+- file_path_or_data: path to file or manually entered data
+- by allowing the user to manually enter data, the user can more easily test different scenarios
+- the timestamp field is not required to solve this exercise, no need to load it into the dataframe
+- similarly, the event_type field is not required after filtering for 'click'
+
+Data cleaning:
+- for this exercise I have assumed that the columns do not necessarily contain only one data type
+'''
+
 
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import col, avg
