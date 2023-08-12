@@ -7,10 +7,10 @@
     - test load, cleaning, avg click duration, overall solution 
 '''
 
-from data_transfomration import TransformData
+from data_transformation import TransformData
 
 
-def test_data_transformation(spark_session):
+def test_spark_session(spark_session):
     assert spark_session is not None
 
 data = [
