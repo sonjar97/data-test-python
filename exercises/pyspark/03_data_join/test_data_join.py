@@ -1,3 +1,12 @@
+'''
+- Only testing provided csv files
+- I have chosen an incremental testing approach
+    - test load
+    - test load, join
+    - test load, join, aggregation
+'''
+
+
 from data_join import JoinData
 
 
