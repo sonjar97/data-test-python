@@ -1,3 +1,12 @@
+'''
+- I am testing both the csv file and the manually entered data
+- I have chosen an incremental testing approach
+    - test load
+    - test load, cleaning
+    - test load, cleaning, avg click duration
+    - test load, cleaning, avg click duration, overall solution 
+'''
+
 from data_transfomration import TransformData
 
 
