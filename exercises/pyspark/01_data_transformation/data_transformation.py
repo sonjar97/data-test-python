@@ -12,5 +12,43 @@ The challenge here is to devise the most efficient and accurate solution using P
 """
 
 
-def data_transformation():
-    pass
+from pyspark.sql.functions import col, avg
+from pyspark.sql.types import IntegerType
+
+
+class TransformData:
+
+    def __init__(self, file_path_or_data=None, columns=None):
+        self.spark = SparkSession.builder.appName("TransformData").getOrCreate()
+
+        if file_path_or_data is not None and columns is None:
+            self.df = self.spark.read.csv(file_path_or_data, header=True, inferSchema=True) \
+                .filter(col('event_type') == 'click') \
+                .select('user_id', 'duration')
+
+        elif file_path_or_data is not None and columns is not None:
+            self.df = self.spark.createDataFrame(file_path_or_data, columns) \
+                .filter(col('event_type') == 'click') \
+                .select('user_id', 'duration')
+
+    def data_cleaning(self):
+        self.df = self.df.filter(
+            col('user_id').cast(IntegerType()).isNotNull() &
+            col('duration').cast(IntegerType()).isNotNull()
+            )
+        
+        self.df = self.df.withColumn('user_id', col('user_id').cast(IntegerType())) \
+                         .withColumn('duration', col('duration').cast(IntegerType()))
+
+        self.df = self.df.filter(
+            (col('user_id') > 0) & (col('duration') > 0)
+            )
+
+    def calculate_avg_click_duration(self):
+        self.df = self.df.groupBy('user_id').agg(avg('duration').alias('avg_duration'))
+
+    def data_transformation(self):
+        self.data_cleaning()
+        self.calculate_avg_click_duration()
+
+        self.df.write.parquet('output.parquet', mode='overwrite')
